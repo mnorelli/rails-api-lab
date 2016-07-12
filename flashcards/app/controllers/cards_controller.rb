@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = card.all
+    @cards = Card.all
 
     render json: @cards
   end
@@ -18,7 +18,7 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
-    @card = card.new(card_params)
+    @card = Card.new(card_params)
 
     if @card.save
       render json: @card, status: :created, location: @card
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
   def update
-    @card = card.find(params[:id])
+    @card = Card.find(params[:id])
 
     if @card.update(card_params)
       head :no_content
@@ -50,7 +50,7 @@ class CardsController < ApplicationController
   private
 
     def set_card
-      @card = card.find(params[:id])
+      @card = Card.find(params[:id])
     end
 
     def card_params
