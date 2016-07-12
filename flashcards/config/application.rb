@@ -13,7 +13,7 @@ module Flashcards
 
     config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
           allow do
-            origins '*'  # limit this?
+            origins '*'  
 
             resource 'api/v1/cards',
               :headers => :any,
